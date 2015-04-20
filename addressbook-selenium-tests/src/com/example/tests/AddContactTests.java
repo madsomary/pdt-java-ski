@@ -32,8 +32,7 @@ public class AddContactTests extends TestBase {
   public void testEmptyContactCreation() throws Exception {
 	openMainPage();
     initNewContactCreation();
-    ContactData group = new ContactData("", "", "", "", "", "", "", "", "-", "-", "", "", "", "");
-	fillContactForm(group);
+	fillContactForm(new ContactData("", "", "", "", "", "", "", "", "-", "-", "", "", "", ""));
     submitEntryCreation();
     returnToHomePage();
   }
