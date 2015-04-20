@@ -1,27 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" total="2" passed="2">
+<testng-results skipped="0" failed="0" total="4" passed="4">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="10967" started-at="2015-04-20T07:30:00Z" finished-at="2015-04-20T07:30:11Z">
+  <suite name="Default suite" duration-ms="18920" started-at="2015-04-20T11:10:14Z" finished-at="2015-04-20T11:10:33Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="10967" started-at="2015-04-20T07:30:00Z" finished-at="2015-04-20T07:30:11Z">
-      <class name="com.example.tests.TestBase">
-        <test-method status="PASS" signature="setUp()[pri:0, instance:com.example.tests.TestBase@387c703b]" name="setUp" is-config="true" duration-ms="5887" started-at="2015-04-20T12:30:00Z" finished-at="2015-04-20T12:30:06Z">
+    <test name="Default test" duration-ms="18920" started-at="2015-04-20T11:10:14Z" finished-at="2015-04-20T11:10:33Z">
+      <class name="com.example.tests.AddContactTests">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:com.example.tests.AddContactTests@50675690]" name="setUp" is-config="true" duration-ms="5765" started-at="2015-04-20T16:10:14Z" finished-at="2015-04-20T16:10:20Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.example.tests.TestBase@387c703b]" name="tearDown" is-config="true" duration-ms="135" started-at="2015-04-20T12:30:11Z" finished-at="2015-04-20T12:30:11Z">
+        <test-method status="PASS" signature="testEmptyContactCreation()[pri:0, instance:com.example.tests.AddContactTests@50675690]" name="testEmptyContactCreation" duration-ms="4137" started-at="2015-04-20T16:10:20Z" finished-at="2015-04-20T16:10:24Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testEmptyContactCreation -->
+        <test-method status="PASS" signature="testNonEmptyContactCreation()[pri:0, instance:com.example.tests.AddContactTests@50675690]" name="testNonEmptyContactCreation" duration-ms="4880" started-at="2015-04-20T16:10:24Z" finished-at="2015-04-20T16:10:29Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testNonEmptyContactCreation -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.example.tests.AddContactTests@50675690]" name="tearDown" is-config="true" duration-ms="175" started-at="2015-04-20T16:10:33Z" finished-at="2015-04-20T16:10:33Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-      </class> <!-- com.example.tests.TestBase -->
+      </class> <!-- com.example.tests.AddContactTests -->
       <class name="com.example.tests.GroupCreationTests">
-        <test-method status="PASS" signature="testEmptyGroupCreation()[pri:0, instance:com.example.tests.GroupCreationTests@5f150435]" name="testEmptyGroupCreation" duration-ms="2290" started-at="2015-04-20T12:30:06Z" finished-at="2015-04-20T12:30:09Z">
+        <test-method status="PASS" signature="testEmptyGroupCreation()[pri:0, instance:com.example.tests.GroupCreationTests@50cbc42f]" name="testEmptyGroupCreation" duration-ms="1943" started-at="2015-04-20T16:10:29Z" finished-at="2015-04-20T16:10:31Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- testEmptyGroupCreation -->
-        <test-method status="PASS" signature="testNonEmptyGroupCreation()[pri:0, instance:com.example.tests.GroupCreationTests@5f150435]" name="testNonEmptyGroupCreation" duration-ms="2645" started-at="2015-04-20T12:30:09Z" finished-at="2015-04-20T12:30:11Z">
+        <test-method status="PASS" signature="testNonEmptyGroupCreation()[pri:0, instance:com.example.tests.GroupCreationTests@50cbc42f]" name="testNonEmptyGroupCreation" duration-ms="2007" started-at="2015-04-20T16:10:31Z" finished-at="2015-04-20T16:10:33Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- testNonEmptyGroupCreation -->
