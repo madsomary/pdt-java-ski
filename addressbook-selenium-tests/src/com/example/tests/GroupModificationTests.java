@@ -9,7 +9,7 @@ import java.util.Random;
 import org.testng.annotations.Test;
 
 public class GroupModificationTests extends TestBase {
-	
+
 	@Test(dataProvider = "randomValidGroupGenerator")
 	public void modifySomeGroup(GroupData group) {
 		app.getNavigationHelper().openMainPage();
@@ -17,9 +17,9 @@ public class GroupModificationTests extends TestBase {
 
 		// save old state
 		List<GroupData> oldList = app.getGroupHelper().getGroups();
-		
+
 		Random rnd = new Random();
-		int index = rnd.nextInt(oldList.size()-1);
+		int index = rnd.nextInt(oldList.size() - 1);
 
 		// actions
 		app.getGroupHelper().initGroupModification(index);
