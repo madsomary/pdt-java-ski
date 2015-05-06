@@ -15,14 +15,14 @@ public class ContactData {
 	public String contactGroup;
 	public String secondaryAddress;
 	public String secondaryHome;
-	
+
 	public ContactData() {
 	}
 
 	public ContactData(String firstName, String lastName, String address,
 			String home, String mobile, String work, String email,
-			String email2, String day, String month, String year, String contactGroup, String secondaryAddress, 
-			String secondaryHome) {
+			String email2, String day, String month, String year,
+			String contactGroup, String secondaryAddress, String secondaryHome) {
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.address = address;
@@ -37,5 +37,5 @@ public class ContactData {
 		this.contactGroup = contactGroup;
 		this.secondaryAddress = secondaryAddress;
 		this.secondaryHome = secondaryHome;
-		}
+	}
 }

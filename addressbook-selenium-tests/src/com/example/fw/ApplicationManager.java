@@ -6,44 +6,43 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
 public class ApplicationManager {
-	
-	public  WebDriver driver;
+
+	public WebDriver driver;
 	public String baseUrl;
-	
+
 	private NavigationHelper navigationHelper;
 	private GroupHelper groupHelper;
 	private ContactHelper contactHelper;
-	
-	public ApplicationManager(){
-		 driver = new FirefoxDriver();
-		 baseUrl = "http://localhost:8081/";
-		 driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);			
+
+	public ApplicationManager() {
+		driver = new FirefoxDriver();
+		baseUrl = "http://localhost:8081/";
+		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 	}
-	
+
 	public void stop() {
-		 driver.quit();
+		driver.quit();
 	}
-	
-	public NavigationHelper getNavigationHelper(){
+
+	public NavigationHelper getNavigationHelper() {
 		if (navigationHelper == null) {
-			navigationHelper = new NavigationHelper(this);		
+			navigationHelper = new NavigationHelper(this);
 		}
 		return navigationHelper;
 	}
-	
-	public GroupHelper getGroupHelper(){
+
+	public GroupHelper getGroupHelper() {
 		if (groupHelper == null) {
-			 groupHelper = new GroupHelper(this);	
+			groupHelper = new GroupHelper(this);
 		}
 		return groupHelper;
 	}
 
-	public ContactHelper getContactHelper(){
+	public ContactHelper getContactHelper() {
 		if (contactHelper == null) {
-			 contactHelper = new ContactHelper(this);	
+			contactHelper = new ContactHelper(this);
 		}
 		return contactHelper;
 	}
-	
 
 }

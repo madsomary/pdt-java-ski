@@ -6,8 +6,8 @@ public class ContactRemovalTests extends TestBase {
 
 	@Test
 	public void DeleteSomeContact() {
-	app.getNavigationHelper().openMainPage();
-	app.getContactHelper().initContactModification(2);
-	app.getContactHelper().deleteContact();
+		app.getNavigationHelper().openMainPage();
+		app.getContactHelper().initContactModification(2);
+		app.getContactHelper().deleteContact();
 	}
 }

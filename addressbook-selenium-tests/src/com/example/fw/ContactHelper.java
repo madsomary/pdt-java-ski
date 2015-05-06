@@ -3,7 +3,7 @@ package com.example.fw;
 import org.openqa.selenium.By;
 import com.example.tests.ContactData;
 
-public class ContactHelper extends HelperBase{
+public class ContactHelper extends HelperBase {
 
 	public ContactHelper(ApplicationManager manager) {
 		super(manager);
@@ -22,32 +22,33 @@ public class ContactHelper extends HelperBase{
 		type(By.name("work"), group.work);
 		type(By.name("email"), group.email);
 		type(By.name("email2"), group.email2);
-	    selectByText(By.name("bday"), group.day);
-	    selectByText(By.name("bmonth"), group.month);
-	    type(By.name("byear"), group.year);
-	   // selectByText(By.name("new_group"), group.contactGroup);
-	    type(By.name("address2"), group.secondaryAddress);
-	    type(By.name("phone2"), group.secondaryHome);
-	
+		selectByText(By.name("bday"), group.day);
+		selectByText(By.name("bmonth"), group.month);
+		type(By.name("byear"), group.year);
+		// selectByText(By.name("new_group"), group.contactGroup);
+		type(By.name("address2"), group.secondaryAddress);
+		type(By.name("phone2"), group.secondaryHome);
+
 	}
 
 	public void submitContactCreation() {
 		click(By.name("submit"));
-	  }
+	}
 
 	public void returnToHomePage() {
 		click(By.linkText("home page"));
-	  }
-	
-	public void initContactModification(int index) {
-		click(By.xpath(".//*[@id='maintable']//tr[" + index + "]" + "/td[7]//img"));
 	}
-	
+
+	public void initContactModification(int index) {
+		click(By.xpath(".//*[@id='maintable']//tr[" + index + "]"
+				+ "/td[7]//img"));
+	}
+
 	public void submitContactModification() {
 		click(By.name("update"));
 	}
-	
-    public void deleteContact() {
-    	click(By.xpath("(//input[@name='update'])[2]"));
-    }
+
+	public void deleteContact() {
+		click(By.xpath("(//input[@name='update'])[2]"));
+	}
 }
