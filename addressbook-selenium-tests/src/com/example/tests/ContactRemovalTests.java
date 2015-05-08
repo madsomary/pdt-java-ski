@@ -22,7 +22,7 @@ public class ContactRemovalTests extends TestBase {
 
 		// actions
 
-		app.getContactHelper().initContactModification(2);
+		app.getContactHelper().initContactModification(index);
 		app.getContactHelper().deleteContact();
 		app.getContactHelper().returnToHomePage();
 
@@ -32,7 +32,8 @@ public class ContactRemovalTests extends TestBase {
 		// compare states
 		oldList.remove(index);
 		Collections.sort(oldList);
-		assertEquals(newList, oldList);
+		Collections.sort(newList);
+		assertEquals(oldList, newList);
 
 	}
 }

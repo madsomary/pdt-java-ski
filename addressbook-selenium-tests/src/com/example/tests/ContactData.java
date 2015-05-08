@@ -38,20 +38,18 @@ public class ContactData implements Comparable<ContactData> {
 		this.secondaryAddress = secondaryAddress;
 		this.secondaryHome = secondaryHome;
 	}
-	
-	
 
 	@Override
 	public String toString() {
 		return "ContactData [lastName=" + lastName + "]";
 	}
-	
-	
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-	//result = prime * result + ((lastName == null) ? 0 : lastName.hashCode());
+		// result = prime * result + ((lastName == null) ? 0 :
+		// lastName.hashCode());
 		return result;
 	}
 
@@ -74,6 +72,7 @@ public class ContactData implements Comparable<ContactData> {
 
 	@Override
 	public int compareTo(ContactData other) {
-		return this.lastName.toLowerCase().compareTo(other.lastName.toLowerCase());
+		return this.lastName.toLowerCase().compareTo(
+				other.lastName.toLowerCase());
 	}
 }

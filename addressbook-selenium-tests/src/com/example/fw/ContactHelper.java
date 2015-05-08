@@ -18,21 +18,21 @@ public class ContactHelper extends HelperBase {
 		click(By.linkText("add new"));
 	}
 
-	public void fillContactForm(ContactData group) {
-		type(By.name("firstname"), group.firstName);
-		type(By.name("lastname"), group.lastName);
-		type(By.name("address"), group.address);
-		type(By.name("home"), group.home);
-		type(By.name("mobile"), group.mobile);
-		type(By.name("work"), group.work);
-		type(By.name("email"), group.email);
-		type(By.name("email2"), group.email2);
-		selectByText(By.name("bday"), group.day);
-		selectByText(By.name("bmonth"), group.month);
-		type(By.name("byear"), group.year);
+	public void fillContactForm(ContactData contact) {
+		type(By.name("firstname"), contact.firstName);
+		type(By.name("lastname"), contact.lastName);
+		type(By.name("address"), contact.address);
+		type(By.name("home"), contact.home);
+		type(By.name("mobile"), contact.mobile);
+		type(By.name("work"), contact.work);
+		type(By.name("email"), contact.email);
+		type(By.name("email2"), contact.email2);
+		// selectByText(By.name("bday"), group.day);
+		// selectByText(By.name("bmonth"), group.month);
+		//type(By.name("byear"), group.year);
 		// selectByText(By.name("new_group"), group.contactGroup);
-		type(By.name("address2"), group.secondaryAddress);
-		type(By.name("phone2"), group.secondaryHome);
+		type(By.name("address2"), contact.secondaryAddress);
+		type(By.name("phone2"), contact.secondaryHome);
 
 	}
 
@@ -67,4 +67,5 @@ public class ContactHelper extends HelperBase {
 		}
 		return contacts;
 	}
+
 }

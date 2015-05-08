@@ -1,6 +1,7 @@
 package com.example.tests;
 
 import java.util.ArrayList;
+
 import java.util.Iterator;
 import java.util.List;
 import java.util.Random;
@@ -24,7 +25,7 @@ public class TestBase {
 	public void tearDown() throws Exception {
 		app.stop();
 	}
-	
+
 	@DataProvider
 	public Iterator<Object[]> randomValidGroupGenerator() {
 		List<Object[]> list = new ArrayList<Object[]>();
@@ -38,6 +39,26 @@ public class TestBase {
 		return list.iterator();
 	}
 
+	@DataProvider
+	public Iterator<Object[]> randomValidContactGenerator() {
+		List<Object[]> list = new ArrayList<Object[]>();
+		for (int i = 0; i < 3; i++) {
+			ContactData group = new ContactData();
+			group.firstName = generateRandomString();
+			group.lastName = generateRandomString();
+			group.address = generateRandomString();
+			group.home = generateRandomString();
+			group.mobile = generateRandomString();
+			group.work = generateRandomString();
+			group.email = generateRandomString();
+			group.email2 = generateRandomString();
+			group.secondaryAddress = generateRandomString();
+			group.secondaryHome = generateRandomString();
+			list.add(new Object[] {group});
+		}
+		return list.iterator();
+	}
+
 	public String generateRandomString() {
 		Random rnd = new Random();
 		if (rnd.nextInt(3) == 0) {
@@ -46,4 +67,5 @@ public class TestBase {
 			return "test" + rnd.nextInt();
 		}
 	}
+
 }
