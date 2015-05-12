@@ -30,7 +30,9 @@ public class ContactModificationTests extends TestBase {
 		List<ContactData> newList = app.getContactHelper().getContacts();
 
 		// compare states
-		oldList.remove(index);
+		
+		ContactData modifiedContact = oldList.get(index); // find object by index
+        oldList.remove(modifiedContact); // delete object from list
 		oldList.add(contact);
 		Collections.sort(oldList);
 		Collections.sort(newList);

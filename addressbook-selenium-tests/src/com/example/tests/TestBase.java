@@ -43,18 +43,18 @@ public class TestBase {
 	public Iterator<Object[]> randomValidContactGenerator() {
 		List<Object[]> list = new ArrayList<Object[]>();
 		for (int i = 0; i < 3; i++) {
-			ContactData group = new ContactData();
-			group.firstName = generateRandomString();
-			group.lastName = generateRandomString();
-			group.address = generateRandomString();
-			group.home = generateRandomString();
-			group.mobile = generateRandomString();
-			group.work = generateRandomString();
-			group.email = generateRandomString();
-			group.email2 = generateRandomString();
-			group.secondaryAddress = generateRandomString();
-			group.secondaryHome = generateRandomString();
-			list.add(new Object[] {group});
+			ContactData contact = new ContactData();
+			contact.firstName = generateRandomString();
+			contact.lastName = generateRandomString();
+			contact.address = generateRandomString();
+			contact.home = generateRandomString();
+			contact.mobile = generateRandomString();
+			contact.work = generateRandomString();
+			contact.email = generateRandomString();
+			contact.email2 = generateRandomString();
+			contact.secondaryAddress = generateRandomString();
+			contact.secondaryHome = generateRandomString();
+			list.add(new Object[] {contact});
 		}
 		return list.iterator();
 	}
