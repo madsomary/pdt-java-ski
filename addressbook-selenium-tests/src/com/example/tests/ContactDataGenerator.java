@@ -36,7 +36,6 @@ public class ContactDataGenerator {
 			saveContactsToXmlFile(contacts, file);
 		} else {
 			System.out.println("Unknown format " + format);
-			return;
 		}
 
 	}

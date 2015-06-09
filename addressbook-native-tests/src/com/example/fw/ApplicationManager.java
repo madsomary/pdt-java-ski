@@ -6,7 +6,7 @@ import java.util.Properties;
 public class ApplicationManager {
 
 	private static ApplicationManager singleton;
-	private Properties properties;
+	private static Properties properties;
 	private ContactHelper contactHelper;
 	private ProcessHelper processHelper;
 	private AutoItHelper autoItHelper;
@@ -25,12 +25,12 @@ public class ApplicationManager {
 		getProcessHelper().startAppUnderTest();
 	}
 
-	public void stop() {
-		getProcessHelper().stopAppUnderTest();
-	}
-
 	public void setProperties(Properties props) {
 		this.properties = props;
+	}
+	
+	public void stop() {
+		getProcessHelper().stopAppUnderTest();
 	}
 
 	public String getProperty(String key) {

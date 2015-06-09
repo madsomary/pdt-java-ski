@@ -24,6 +24,7 @@ public class TestContactCreation extends TestBase {
 		app.getContactHelper().createContact(contact);
 		Contact createdContact = app.getContactHelper().getFirstContact();
 		Assert.assertEquals(contact, createdContact);
+		//app.getProcessHelper().closeApplication();
 	}
 
 	private String RandomStringCapitalized() {
