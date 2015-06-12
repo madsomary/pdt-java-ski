@@ -1,14 +1,15 @@
 package com.example.fw;
 
-import java.util.List;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
 import com.example.tests.ContactData;
+import com.example.tests.GroupData;
 import com.example.utils.SortedListOf;
 
-public class ContactHelper extends HelperBase {
+import java.util.List;
+
+public class ContactHelper extends WebDriverHelperBase {
 
 	public static boolean CREATION = true;
 	public static boolean MODIFICATION = false;
@@ -17,34 +18,13 @@ public class ContactHelper extends HelperBase {
 		super(manager);
 	}
 
-	private SortedListOf<ContactData> cachedContacts;
-
-	public SortedListOf<ContactData> getContacts() {
-		if (cachedContacts == null) {
-			rebuildCache();
-		}
-		return cachedContacts;
-	}
-
-	public void rebuildCache() {
-		cachedContacts = new SortedListOf<ContactData>();
-		manager.navigateTo().mainPage();
-		List<WebElement> cells = driver.findElements(By
-				.xpath("//tr[@name='entry']/td[2]"));
-		for (WebElement cell : cells) {
-			String text = cell.getText();
-			String lastName = text;
-			cachedContacts.add(new ContactData().withLastName(lastName));
-		}
-	}
-
 	public ContactHelper createContact(ContactData contact, boolean formType) {
 		manager.navigateTo().mainPage();
 		initNewContactCreation();
 		fillContactForm(contact, formType);
 		submitContactCreation();
 		returnToHomePage();
-		rebuildCache();
+		manager.getModel().addContact(contact);
 		return this;
 	}
 
@@ -54,7 +34,7 @@ public class ContactHelper extends HelperBase {
 		fillContactForm(contact, formType);
 		submitContactModification();
 		returnToHomePage();
-		rebuildCache();
+		manager.getModel().removeContact(index).addContact(contact);
 		return this;
 	}
 
@@ -62,9 +42,34 @@ public class ContactHelper extends HelperBase {
 		initContactModification(index);
 		deleteContact();
 		returnToHomePage();
-		rebuildCache();
+		manager.getModel().removeContact(index);
 		return this;
 	}
+
+	public SortedListOf<ContactData> getUiContacts() {
+		SortedListOf<ContactData> contacts = new SortedListOf<ContactData>();
+		manager.navigateTo().mainPage();
+		List<WebElement> cells = driver.findElements(By
+				.xpath("//tr[@name='entry']/td[2]"));
+		for (WebElement cell : cells) {
+			String text = cell.getText();
+			String lastName = text;
+			contacts.add(new ContactData().withLastName(lastName));
+		}
+		returnToHomePage();
+		return contacts;
+	}
+
+	public SortedListOf<ContactData> getModifiedContactFromUi(int index) {
+		SortedListOf<ContactData> contacts = new SortedListOf<ContactData>();
+		initContactModification(index);
+		String lastName = driver.findElement(By.name("lastname")).getAttribute(
+				"value");
+		contacts.add(new ContactData().withLastName(lastName));
+		manager.navigateTo().mainPage();
+		return contacts;
+	}
+
 
 	// ----------------------------------------------------------------------------------------------
 
@@ -80,14 +85,14 @@ public class ContactHelper extends HelperBase {
 		selectByText(By.name("bday"), contact.getDay());
 		selectByText(By.name("bmonth"), contact.getMonth());
 		type(By.name("byear"), contact.getYear());
-//		if (formType == CREATION) {
-//			// selectByText(By.name("new_group"), contact.getContactGroup());
-//		} else {
-//			if (driver.findElements(By.name("new_group")).size() != 0) {
-//				throw new Error(
-//						"Group selector exist in contact modification form");
-//			}
-//		}
+		// if (formType == CREATION) {
+		// // selectByText(By.name("new_group"), contact.getContactGroup());
+		// } else {
+		// if (driver.findElements(By.name("new_group")).size() != 0) {
+		// throw new Error(
+		// "Group selector exist in contact modification form");
+		// }
+		// }
 		type(By.name("address2"), contact.getSecondaryAddress());
 		type(By.name("phone2"), contact.getSecondaryHome());
 		return this;
